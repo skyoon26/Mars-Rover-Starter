@@ -10,7 +10,6 @@ describe("Rover class", function() {
   // 7 tests here!
   test("constructor sets position and default values for mode and generatorWatts", function() {
     let testRover = new Rover(98382);
-
     expect(testRover).toEqual({position: 98382, mode: "NORMAL", generatorWatts: 110});
   });
 
@@ -67,7 +66,7 @@ describe("Rover class", function() {
   });
 
   test("responds with the position for the move command", function() {
-    let testCommands = [new Command("MOVE", 100000), new Command('STATUS_CHECK')];
+    let testCommands = [new Command("MOVE", 4321), new Command('STATUS_CHECK')];
     let testMessage = new Message("Test message with two commands", testCommands);
     let testRover = new Rover(98382);
     let testResponse = testRover.receiveMessage(testMessage);
@@ -75,7 +74,7 @@ describe("Rover class", function() {
       { completed: true },
       {
         completed: true,
-        roverStatus: { mode: 'NORMAL', generatorWatts: 110, position: 100000 }
+        roverStatus: { mode: 'NORMAL', generatorWatts: 110, position: 4321 }
       }
     ]
     expect(testResponse.results).toEqual(result);

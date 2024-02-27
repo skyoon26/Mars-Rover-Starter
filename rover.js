@@ -14,8 +14,6 @@ class Rover {
          message: message.name,
          results: message.commands
       };
-
-      // new Command('STATUS_CHECK')
       let resultOne = {
          completed: true, 
          roverStatus: {
@@ -49,10 +47,3 @@ class Rover {
 }
 
 module.exports = Rover;
-
-let commands = [new Command('MOVE', 4321), new Command('STATUS_CHECK')];
-let message = new Message('Test message with two commands', commands);
-let rover = new Rover(98382);    // Passes 98382 as the rover's position.
-let response = rover.receiveMessage(message);
-
-console.log(response.results);
